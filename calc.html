@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+
+<body>
+  <input id="number" type="number">
+  <br><br>
+  <input id="number2" type="number" onchange="save()"><br><br>
+  <button onclick="add()">+</button>
+  <p id="result">RESULT WILL BE SHOWN HERE</p>
+  <script>
+    var sum, num1, num2;
+    function save() {
+      num1 = document.getElementById('number').value;
+      num2 = document.getElementById('number2').value;
+
+      num1= parseInt(num1);
+      num2=parseInt(num2);
+    }
+    function add() {
+      sum = num1 + num2;
+      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
+    }
+  </script>
+</body>
+
+</html>
