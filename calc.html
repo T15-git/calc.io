@@ -11,25 +11,26 @@
 <body>
   <br><br>
 
-  <input  id="number2" type="text" name="text" ><br><br>
-  <button onclick="plus()">1</button>
-  <button onclick="plus()">2</button>
-  <button onclick="plus()">3</button>
-  <button onclick="plus()">c</button>
-  <button onclick="plus()">-</button><br>
-  <button onclick="plus()">4</button>
-  <button onclick="plus()">5</button>
-  <button onclick="plus()">6</button>
-  <button onclick="plus()">/</button>
-  <button onclick="plus()">%</button><br>
-  <button onclick="plus()">7</button>
-  <button onclick="plus()">8</button>
-  <button onclick="plus()">9</button>
-  <button onclick="plus()">*</button>
-  <button style="height: 35px;" onclick="plus()">+</button><br>
-  <button onclick="plus()">0</button>
-  <button style="width: 36px;" onclick="plus()">00</button>
-  <button style="width: 36px;" onclick="plus()">=</button>
+  <input  style="width: 125px; text-align: right; " id="number2" type="text" name="text" ><br><br>
+  <button onclick="choice=1,num()">1</button>
+  <button onclick="choice=2,num()">2</button>
+  <button onclick="choice=3,num()">3</button>
+  <button style="width: 20px;" onclick="choice='c',num()">c</button>
+  <button style="width: 25px;" onclick="choice='-',num()">-</button><br>
+  <button onclick="choice=4,num()">4</button>
+  <button onclick="choice=5,num()">5</button>
+  <button onclick="choice=6,num()">6</button>
+  <button onclick="choice='/',num()">/</button>
+  <button style="width: 25px;" onclick="choice='%',num()">%</button><br>
+  <button onclick="choice=7,num()">7</button>
+  <button onclick="choice=8,num()">8</button>
+  <button onclick="choice=9,num()">9</button>
+  <button onclick="choice='*',num()">*</button>
+  <button onclick="choice='+',num()">+</button>
+  <br>
+  <button onclick="choice=0,num()">0</button>
+  <button style="width: 50px;" onclick="choice='10',num()">00</button>
+  <button style="width: 50px;" onclick="choice='=',num()">=</button>
   
   <script type="text/javascript" src="script.js"></script></script>
 </body>
