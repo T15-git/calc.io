@@ -9,45 +9,29 @@
 </head>
 
 <body>
-  <input id="number" type="number">
   <br><br>
-  <input id="number2" type="number" onchange="save()"><br><br>
-  <button onclick="add()">+</button>
-  <button onclick="sub()">-</button>
-  <button onclick="mul()">x</button>
-  <button onclick="div()">/</button>
-  <button onclick="mod()">%</button>
-  <p id="result">RESULT WILL BE SHOWN HERE</p>
-  <script>
-    var sum, num1, num2;
-    function save() {
-      num1 = document.getElementById('number').value;
-      num2 = document.getElementById('number2').value;
 
-      num1= parseInt(num1);
-      num2=parseInt(num2);
-    }
-    function add() {
-      sum = num1 + num2;
-      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
-    }
-    function sub() {
-      sum = num1 - num2;
-      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
-    }
-    function mul() {
-      sum = num1 * num2;
-      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
-    }
-    function div() {
-      sum = num1 / num2;
-      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
-    }
-    function mod() {
-      sum = num1 % num2;
-      document.getElementById('result').innerHTML = "YOUR ANSWER IS [" + sum + "]";
-    }
-  </script>
+  <input  id="number2" type="text" name="text" ><br><br>
+  <button onclick="plus()">1</button>
+  <button onclick="plus()">2</button>
+  <button onclick="plus()">3</button>
+  <button onclick="plus()">c</button>
+  <button onclick="plus()">-</button><br>
+  <button onclick="plus()">4</button>
+  <button onclick="plus()">5</button>
+  <button onclick="plus()">6</button>
+  <button onclick="plus()">/</button>
+  <button onclick="plus()">%</button><br>
+  <button onclick="plus()">7</button>
+  <button onclick="plus()">8</button>
+  <button onclick="plus()">9</button>
+  <button onclick="plus()">*</button>
+  <button style="height: 35px;" onclick="plus()">+</button><br>
+  <button onclick="plus()">0</button>
+  <button style="width: 36px;" onclick="plus()">00</button>
+  <button style="width: 36px;" onclick="plus()">=</button>
+  
+  <script type="text/javascript" src="script.js"></script></script>
 </body>
 
 </html>
