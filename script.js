@@ -79,6 +79,7 @@ function num() {
         document.getElementById('number2').value += '%'
     }
     else if (choice == 'c') {
+        
         document.getElementById('number1').value = ''
         document.getElementById('number2').value = ''
     }
