@@ -1,7 +1,8 @@
-var choice;
-
+var choice,operator;
+var result=0;
 
 function num() {
+    var num2=0;
 
     if (choice == 1) {
         document.getElementById('number2').value += '1'
@@ -37,10 +38,36 @@ function num() {
         document.getElementById('number2').value += '00'
     }
     else if (choice == '+') {
-        document.getElementById('number2').value += '+'
+        if(result!=0){
+            num2 = document.getElementById('number2').value
+            num2 = parseInt(num2);
+            document.getElementById('number1').value = result + num2 + '+'
+            document.getElementById('number2').value = ''
+            operator = '+'
+            result += num2
+        }else{
+            result = document.getElementById('number2').value
+            result = parseInt(result);
+            document.getElementById('number1').value += result + '+'
+            document.getElementById('number2').value = ''
+            operator = '+'
+        }
     }
     else if (choice == '-') {
-        document.getElementById('number2').value += '-'
+        if(result!=0){
+            num2 = document.getElementById('number2').value
+            num2 = parseInt(num2);
+            document.getElementById('number1').value = result - num2 + '-'
+            document.getElementById('number2').value = ''
+            operator = '-'
+            result -= num2
+        }else{
+            result = document.getElementById('number2').value
+            result = parseInt(result);
+            document.getElementById('number1').value += result + '-'
+            document.getElementById('number2').value = ''
+            operator = '-'
+        }
     }
     else if (choice == '*') {
         document.getElementById('number2').value += '*'
@@ -52,10 +79,40 @@ function num() {
         document.getElementById('number2').value += '%'
     }
     else if (choice == 'c') {
+        document.getElementById('number1').value = ''
         document.getElementById('number2').value = ''
     }
     else if (choice == '=') {
-        document.getElementById('number2').value = eval(document.getElementById('number2').value)
+        num2 = document.getElementById('number2').value
+        num2 = parseInt(num2);
+        document.getElementById('number1').value = ''
+
+        switch (operator){
+
+            case '+':document.getElementById('number2').value = result + num2
+            result=0
+            break
+
+            case '-':document.getElementById('number2').value = result - num2
+            result=0
+            break
+
+            case '*':document.getElementById('number2').value = result * num2
+            result=0
+            break
+
+            case '/':document.getElementById('number2').value = result / num2
+            result=0
+            break
+
+            case '%':document.getElementById('number2').value = result % num2
+            result=0
+            break
+
+            default:document.getElementById('number2').value = 'Error'
+            result=0
+            break
+        }
     }
 
 
