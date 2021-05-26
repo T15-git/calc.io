@@ -37,10 +37,13 @@ function num() {
     else if (choice == '10') {
         document.getElementById('number2').value += '00'
     }
+    else if (choice == 'd') {
+        document.getElementById('number2').value += '.'
+    }
     else if (choice == '+') {
         if (result != 0) {
             num2 = document.getElementById('number2').value
-            num2 = parseInt(num2);
+            num2 = parseFloat(num2);
             switch (operator) {
                 case '-': result -= num2
                     break
@@ -57,7 +60,7 @@ function num() {
             operator = '+'
         } else {
             result = document.getElementById('number2').value
-            result = parseInt(result);
+            result = parseFloat(result);
             document.getElementById('number1').value += result + '+'
             document.getElementById('number2').value = ''
             operator = '+'
@@ -66,7 +69,7 @@ function num() {
     else if (choice == '-') {
         if (result != 0) {
             num2 = document.getElementById('number2').value
-            num2 = parseInt(num2);
+            num2 = parseFloat(num2);
 
             switch (operator) {
                 case '+': result += num2
@@ -84,7 +87,7 @@ function num() {
             operator = '-'
         } else {
             result = document.getElementById('number2').value
-            result = parseInt(result);
+            result = parseFloat(result);
             document.getElementById('number1').value += result + '-'
             document.getElementById('number2').value = ''
             operator = '-'
@@ -93,7 +96,7 @@ function num() {
     else if (choice == '*') {
         if (result != 0) {
             num2 = document.getElementById('number2').value
-            num2 = parseInt(num2);
+            num2 = parseFloat(num2);
 
             switch (operator) {
                 case '+': result += num2
@@ -106,13 +109,13 @@ function num() {
                     break
                 default: result *= num2
             }
-            document.getElementById('number1').value = result + '*'
+            document.getElementById('number1').value = result + 'x'
             document.getElementById('number2').value = ''
             operator = '*'
         } else {
             result = document.getElementById('number2').value
-            result = parseInt(result);
-            document.getElementById('number1').value += result + '*'
+            result = parseFloat(result);
+            document.getElementById('number1').value += result + 'x'
             document.getElementById('number2').value = ''
             operator = '*'
         }
@@ -120,7 +123,7 @@ function num() {
     else if (choice == '/') {
         if (result != 0) {
             num2 = document.getElementById('number2').value
-            num2 = parseInt(num2);
+            num2 = parseFloat(num2);
 
             switch (operator) {
                 case '+': result += num2
@@ -133,13 +136,13 @@ function num() {
                     break
                 default: result /= num2
             }
-            document.getElementById('number1').value = result + '/'
+            document.getElementById('number1').value = result + '÷'
             document.getElementById('number2').value = ''
             operator = '/'
         } else {
             result = document.getElementById('number2').value
-            result = parseInt(result);
-            document.getElementById('number1').value += result + '/'
+            result = parseFloat(result);
+            document.getElementById('number1').value += result + '÷'
             document.getElementById('number2').value = ''
             operator = '/'
         }
@@ -147,7 +150,7 @@ function num() {
     else if (choice == '%') {
         if (result != 0) {
             num2 = document.getElementById('number2').value
-            num2 = parseInt(num2);
+            num2 = parseFloat(num2);
 
             switch (operator) {
                 case '+': result += num2
@@ -165,7 +168,7 @@ function num() {
             operator = '%'
         } else {
             result = document.getElementById('number2').value
-            result = parseInt(result);
+            result = parseFloat(result);
             document.getElementById('number1').value += result + '%'
             document.getElementById('number2').value = ''
             operator = '%'
@@ -180,7 +183,7 @@ function num() {
     }
     else if (choice == '=') {
         num2 = document.getElementById('number2').value
-        num2 = parseInt(num2);
+        num2 = parseFloat(num2);
         document.getElementById('number1').value = ''
 
         switch (operator) {
