@@ -12,50 +12,50 @@
 
   <h1 style="margin-left: -16px;">!Calculator!</h1>
 
-  <input style="width: 125px; text-align: right; border-color: blanchedalmond;" id="number2" type="text" name="text">
+  <input style="width: 125px; text-align: right; border-color: blanchedalmond;" id="input_field" type="text" name="text">
   <br>
   <br>
 
-  <button onclick="choice=1,num()">1</button>
+  <button onclick="number(1)">1</button>
 
-  <button onclick="choice=2,num()">2</button>
+  <button onclick="number(2)">2</button>
 
-  <button onclick="choice=3,num()">3</button>
+  <button onclick="number(3)">3</button>
 
-  <button style="width: 22px;" onclick="choice='c',num()">c</button>
+  <button style="width: 22px;" onclick="clean()">c</button>
 
-  <button style="width: 25px; font-weight: bolder;" onclick="choice='-',num()">-</button>
+  <button style="width: 25px; font-weight: bolder;" onclick="operator('-')">-</button>
   <br>
 
-  <button onclick="choice=4,num()">4</button>
+  <button onclick="number(4)">4</button>
 
-  <button onclick="choice=5,num()">5</button>
+  <button onclick="number(5)">5</button>
 
-  <button onclick="choice=6,num()">6</button>
+  <button onclick="number(6)">6</button>
 
-  <button style="width: 22px; font-weight: bold; " onclick="choice='/',num()">÷</button>
+  <button style="width: 22px; font-weight: bold; " onclick="operator('/')">÷</button>
 
-  <button style="width: 25px;" onclick="choice='%',num()">%</button>
+  <button style="width: 25px;" onclick="operator('%')">%</button>
   <br>
 
-  <button onclick="choice=7,num()">7</button>
+  <button onclick="number(7)">7</button>
 
-  <button onclick="choice=8,num()">8</button>
+  <button onclick="number(8)">8</button>
 
-  <button onclick="choice=9,num()">9</button>
+  <button onclick="number(9)">9</button>
 
-  <button onclick="choice='*',num()">x</button>
+  <button onclick="operator('*')">x</button>
 
-  <button onclick="choice='+',num()">+</button>
+  <button onclick="operator('+')">+</button>
   <br>
 
-  <button onclick="choice=0,num()">0</button>
+  <button onclick="number(0)">0</button>
 
-  <button onclick="choice='10',num()">00</button>
+  <button onclick="number('00')">00</button>
 
-  <button style="font-weight: bolder;" onclick="choice='d',num()">.</button>
+  <button style="font-weight: bolder;" onclick="dott()">.</button>
 
-  <button style="width: 46px;" onclick="choice='=',num()">=</button>
+  <button style="width: 46px;" onclick="response()">=</button>
 
 
   <script type="text/javascript" src="script.js"></script>

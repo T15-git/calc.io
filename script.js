@@ -1,325 +1,92 @@
-var choice;
-var dot=0;
+var expression = [];
+var index = 0;
+var currentNumber = "";
 
-function num() { // this fumction will print the value on input..
-    var check; 
-    var str;
-    var i=0;
+function clean() {
+    document.getElementById('input_field').value = ""
+    expression = [];
+    index = 0;
+    currentNumber = "";
+}
 
-    if (choice == 1) {
-        document.getElementById('number2').value += '1';
-    }
-    else if (choice == 2) {
-        document.getElementById('number2').value += '2';
-    }
-    else if (choice == 3) {
-        document.getElementById('number2').value += '3';
-    }
-    else if (choice == 4) {
-        document.getElementById('number2').value += '4';
-    }
-    else if (choice == 5) {
-        document.getElementById('number2').value += '5';
-    }
-    else if (choice == 6) {
-        document.getElementById('number2').value += '6';
-    }
-    else if (choice == 7) {
-        document.getElementById('number2').value += '7';
-    }
-    else if (choice == 8) {
-        document.getElementById('number2').value += '8';
-    }
-    else if (choice == 9) {
-        document.getElementById('number2').value += '9';
-    }
-    else if (choice == 0) {
-        document.getElementById('number2').value += '0';
-    }
-    else if (choice == '10') {
-        document.getElementById('number2').value += '00';
-    }
-    else if (choice == 'd') {
-        if(dot==1){
-            dot = 1;
-        }
-        else{
-            document.getElementById('number2').value += '.';
-            dot = 1;
-        }
+function number(num) {
+    document.getElementById('input_field').value += num;
+    currentNumber += num;
+}
+
+function dott() {
+
+    if (document.getElementById('input_field').value == "") {
+        return;
     }
 
-
-    else if (choice == '+') {
-        str=document.getElementById('number2').value
-
-        if(str==''){
-            
-            document.getElementById('number2').value = '';
-        }
-        else{
-            i=str.length-1;
-            check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
-                dot = 0;
-                str=str.replaceAt(i, '+');
-                document.getElementById('number2').value = str;
-            }
-            else if(i==0){
-                document.getElementById('number2').value = '-';
-            }
-            else{
-                document.getElementById('number2').value += '+';
-                dot = 0;
-            }
-        }
-    }
-    else if (choice == '-') {
-        str=document.getElementById('number2').value
-        i=str.length-1;
-        check=str.charAt(str.length-1)
-            
-        if(check=='+' || check == '-' || check=='x' || check=='÷' || check =='%'){
-            dot = 0;
-            str=str.replaceAt(i, '-');
-            document.getElementById('number2').value = str;
-        }
-        else{
-            document.getElementById('number2').value += '-';
-            dot = 0;
-        }
-    }
-    else if (choice == '*') {
-        str=document.getElementById('number2').value
-
-        if(str==''){
-            
-            document.getElementById('number2').value = '';
-        }
-        else{
-            i=str.length-1;
-            check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
-                dot = 0;
-                str=str.replaceAt(i, 'x');
-                document.getElementById('number2').value = str;
-            }
-            else if(i==0){
-                document.getElementById('number2').value = '-';
-            }
-            else{
-                document.getElementById('number2').value += 'x';
-                dot = 0;
-            }
-        }
-    }
-    else if (choice == '/') {
-        str=document.getElementById('number2').value
-
-        if(str==''){
-            
-            document.getElementById('number2').value = '';
-        }
-        else{
-            i=str.length-1;
-            check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
-                dot = 0;
-                str=str.replaceAt(i, '÷');
-                document.getElementById('number2').value = str;
-            }
-            else if(i==0){
-                document.getElementById('number2').value = '-';
-            }
-            else{
-                document.getElementById('number2').value += '÷';
-                dot = 0;
-            }
-        }
-    }
-    else if (choice == '%') {
-        str=document.getElementById('number2').value
-
-        if(str==''){
-            
-            document.getElementById('number2').value = '';
-        }
-        else{
-            i=str.length-1;
-            check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
-                dot = 0;
-                str=str.replaceAt(i, '%');
-                document.getElementById('number2').value = str;
-            }
-            else if(i==0){
-                document.getElementById('number2').value = '-';
-            }
-            else{
-                document.getElementById('number2').value += '%';
-                dot = 0;
-            }
-        }
-    }
-    else if (choice == 'c') {
-        document.getElementById('number2').value = '';
-        dot =0;
-    }
-    else if (choice == '=') {
-        result();
+    if (!currentNumber.includes(".") && currentNumber != "") {
+        currentNumber += ".";
+        document.getElementById('input_field').value += ".";
     }
 }
 
-function result(){ // calculating function
+function operator(op) {    
+
+    if (document.getElementById('input_field').value == "") {
+        return;
+    }
+
+    if (currentNumber == "") {
+        var oldval = document.getElementById('input_field').value;
+        document.getElementById('input_field').value = oldval.replaceAt(oldval.length - 1, op);
+        expression[--index] = op;
+    } else {
+        document.getElementById('input_field').value += op;
+        expression[index] = currentNumber;
+        expression[++index] = op;
+    }
     
-    var i=0;
-    var j=0;
-    var arr = [];
-    var str;
+    index++;
+    currentNumber = "";
+}
 
-    str = document.getElementById('number2').value;
-        
-        for(i ; i < str.length ;i++ ){  //this (for) loop is used to assign value in array
-                                        //it will assign the value in this order: [value , operator, value,... and so on]
-                                        // for exampel: if you enter 50+40.. the array would be [50,'+',40,... so on] 
-            if(str[i]==1){
-                if(arr[j]==null)
-                    arr[j]='1';
-                else  
-                    arr[j]+='1';
-            }
-            else if(str[i]==2){
-                if(arr[j]==null)
-                    arr[j]='2';
-                else  
-                    arr[j]+='2';
-            }
-            else if(str[i]==3){
-                if(arr[j]==null)
-                    arr[j]='3';
-                else  
-                    arr[j]+='3';
-            }
-            else if(str[i]==4){
-                if(arr[j]==null)
-                    arr[j]='4';
-                else  
-                    arr[j]+='4';
-            }
-            else if(str[i]==5){
-                if(arr[j]==null)
-                    arr[j]='5';
-                else  
-                    arr[j]+='5';
-            }
-            else if(str[i]==6){
-                if(arr[j]==null)
-                    arr[j]='6';
-                else  
-                    arr[j]+='6';
-            }
-            else if(str[i]==7){
-                if(arr[j]==null)
-                    arr[j]='7';
-                else  
-                    arr[j]+='7';
-            }
-            else if(str[i]==8){
-                if(arr[j]==null)
-                    arr[j]='8';
-                else  
-                    arr[j]+='8';
-            }
-            else if(str[i]==9){
-                if(arr[j]==null)
-                    arr[j]='9';
-                else  
-                    arr[j]+='9';
-            }
-            else if(str[i]==0){
-                if(arr[j]==null)
-                    arr[j]='0';
-                else  
-                    arr[j]+='0';
-            }
-            else if(str[i]=='.'){
-                if(arr[j]==null)
-                    arr[j]='.';
-                else  
-                    arr[j]+='.';
-            }
-            else if(str[i]=='+'){
-                j++;
-                arr[j]='+';
-                j++;
-            }
-            else if(str[i]=='-'){
-                if(arr[0]==null){
-                    arr[j]='-';
-                }
-                else{
-                    j++;
-                    arr[j]='-';
-                    j++;
-                }
-            }
-            else if(str[i]=='x'){
-                j++;
-                arr[j]='*';
-                j++;
-            }
-            else if(str[i]=='÷'){
-                j++;
-                arr[j]='/';
-                j++;
-            }
-            else if(str[i]=='%'){
-                j++;
-                arr[j]='%';
-                j++;
-            }
-        }
-    i=j;
-    j=0;
-    while(i>=j){   //working explanation:-->                    //this loop is to solve the assigned array
-        if(i==0){                                               //it works like: if we get an operator between two numbers..
-            document.getElementById('number2').value = arr[0];  //it will solve it according to that operator and save it in array
-            break;                                              //for example: we get [50,'+',40,'+',30]
-        }                                                       //it will solve it like this:[50,'+',40,'+',30]
-        else if(arr[i]=='+'){                                   //                           [50,'+',70]
-            arr[i-1] = parseFloat(arr[i-1]);                    //ans will be saved in 0th array = [120]
-            arr[i+1] = parseFloat(arr[i+1]);
-            arr[i-1] = arr[i-1] + arr[i+1];   
-        }
-        else if(arr[i]=='-'){
-            arr[i-1] = parseFloat(arr[i-1]);
-            arr[i+1] = parseFloat(arr[i+1]);
-            arr[i-1] = arr[i-1] - arr[i+1];   
-        }
-        else if(arr[i]=='*'){
-            arr[i-1] = parseFloat(arr[i-1]);
-            arr[i+1] = parseFloat(arr[i+1]);
-            arr[i-1] = arr[i-1] * arr[i+1];   
-        }
-        else if(arr[i]=='/'){
-            arr[i-1] = parseFloat(arr[i-1]);
-            arr[i+1] = parseFloat(arr[i+1]);
-            arr[i-1] = arr[i-1] / arr[i+1];   
-        }
-        else if(arr[i]=='%'){
-            arr[i-1] = parseFloat(arr[i-1]);
-            arr[i+1] = parseFloat(arr[i+1]);
-            arr[i-1] = arr[i-1] % arr[i+1];   
-        }
-        i--;
+function response() {
+
+    if (document.getElementById('input_field').value == "") {
+        return;
+    }
+
+    if (currentNumber != "") {
+        expression[index] = currentNumber;
+    }
+
+    var lastValue = expression[expression.length - 1];
+    if (lastValue == "." || isOperator(lastValue)) {
+        return;
+    }
+
+    while (expression.length != 1) {
+        var i = expression.length - 1;
+
+        var firstOperand = parseFloat(expression[i]);
+        var operator = expression[i - 1];
+        var secondOperand = parseFloat(expression[i - 2]);
+
+        var result = calculate(firstOperand, secondOperand, operator);
+        var slicedArray = expression.slice(0, expression.length - 3);;
+        expression = slicedArray;
+        expression[i - 2] = result;
+    }
+
+    document.getElementById('input_field').value = expression[0];
+}
+
+function calculate(firstOperand, secondOperand, operator) {
+    switch (operator) {
+        case "+": return firstOperand + secondOperand;
+        case "-": if (firstOperand > secondOperand) return firstOperand - secondOperand; else return secondOperand - firstOperand;
+        case "*": return firstOperand * secondOperand;
+        case "/": return firstOperand / secondOperand;
+        case "%": return firstOperand % secondOperand;
     }
 }
-String.prototype.replaceAt = function(index, replacement) {
-    if (index >= this.length) {
-        return this.valueOf();
-    }
- 
-    var chars = this.split('');
-    chars[index] = replacement;
-    return chars.join('');
+
+function isOperator(operator) {
+    return operator == "*" || operator == "/" || operator == "-" || operator == "+" || operator == "%";
 }
