@@ -1,6 +1,10 @@
 var choice;
+var dot=0;
 
 function num() { // this fumction will print the value on input..
+    var check; 
+    var str;
+    var i=0;
 
     if (choice == 1) {
         document.getElementById('number2').value += '1';
@@ -36,25 +40,130 @@ function num() { // this fumction will print the value on input..
         document.getElementById('number2').value += '00';
     }
     else if (choice == 'd') {
-        document.getElementById('number2').value += '.';
+        if(dot==1){
+            dot = 1;
+        }
+        else{
+            document.getElementById('number2').value += '.';
+            dot = 1;
+        }
     }
+
+
     else if (choice == '+') {
-        document.getElementById('number2').value += '+';
+        str=document.getElementById('number2').value
+
+        if(str==''){
+            
+            document.getElementById('number2').value = '';
+        }
+        else{
+            i=str.length-1;
+            check=str.charAt(str.length-1)
+            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                dot = 0;
+                str=str.replaceAt(i, '+');
+                document.getElementById('number2').value = str;
+            }
+            else if(i==0){
+                document.getElementById('number2').value = '-';
+            }
+            else{
+                document.getElementById('number2').value += '+';
+                dot = 0;
+            }
+        }
     }
     else if (choice == '-') {
-        document.getElementById('number2').value += '-';
+        str=document.getElementById('number2').value
+        i=str.length-1;
+        check=str.charAt(str.length-1)
+            
+        if(check=='+' || check == '-' || check=='x' || check=='÷' || check =='%'){
+            dot = 0;
+            str=str.replaceAt(i, '-');
+            document.getElementById('number2').value = str;
+        }
+        else{
+            document.getElementById('number2').value += '-';
+            dot = 0;
+        }
     }
     else if (choice == '*') {
-        document.getElementById('number2').value += 'x';
+        str=document.getElementById('number2').value
+
+        if(str==''){
+            
+            document.getElementById('number2').value = '';
+        }
+        else{
+            i=str.length-1;
+            check=str.charAt(str.length-1)
+            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                dot = 0;
+                str=str.replaceAt(i, 'x');
+                document.getElementById('number2').value = str;
+            }
+            else if(i==0){
+                document.getElementById('number2').value = '-';
+            }
+            else{
+                document.getElementById('number2').value += 'x';
+                dot = 0;
+            }
+        }
     }
     else if (choice == '/') {
-        document.getElementById('number2').value += '÷';
+        str=document.getElementById('number2').value
+
+        if(str==''){
+            
+            document.getElementById('number2').value = '';
+        }
+        else{
+            i=str.length-1;
+            check=str.charAt(str.length-1)
+            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                dot = 0;
+                str=str.replaceAt(i, '÷');
+                document.getElementById('number2').value = str;
+            }
+            else if(i==0){
+                document.getElementById('number2').value = '-';
+            }
+            else{
+                document.getElementById('number2').value += '÷';
+                dot = 0;
+            }
+        }
     }
     else if (choice == '%') {
-        document.getElementById('number2').value += '%';
+        str=document.getElementById('number2').value
+
+        if(str==''){
+            
+            document.getElementById('number2').value = '';
+        }
+        else{
+            i=str.length-1;
+            check=str.charAt(str.length-1)
+            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                dot = 0;
+                str=str.replaceAt(i, '%');
+                document.getElementById('number2').value = str;
+            }
+            else if(i==0){
+                document.getElementById('number2').value = '-';
+            }
+            else{
+                document.getElementById('number2').value += '%';
+                dot = 0;
+            }
+        }
     }
     else if (choice == 'c') {
         document.getElementById('number2').value = '';
+        dot =0;
     }
     else if (choice == '=') {
         result();
@@ -172,7 +281,7 @@ function result(){ // calculating function
         }
     i=j;
     j=0;
-        while(i>=j){   //working explanation:-->                //this loop is to solve the assigned array
+    while(i>=j){   //working explanation:-->                    //this loop is to solve the assigned array
         if(i==0){                                               //it works like: if we get an operator between two numbers..
             document.getElementById('number2').value = arr[0];  //it will solve it according to that operator and save it in array
             break;                                              //for example: we get [50,'+',40,'+',30]
@@ -204,4 +313,13 @@ function result(){ // calculating function
         }
         i--;
     }
+}
+String.prototype.replaceAt = function(index, replacement) {
+    if (index >= this.length) {
+        return this.valueOf();
+    }
+ 
+    var chars = this.split('');
+    chars[index] = replacement;
+    return chars.join('');
 }
