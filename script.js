@@ -60,7 +60,11 @@ function num() { // this fumction will print the value on input..
         else{
             i=str.length-1;
             check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                        
+            if(check=='.'){
+                dot = 1;
+            }
+            else if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
                 dot = 0;
                 str=str.replaceAt(i, '+');
                 document.getElementById('number2').value = str;
@@ -78,8 +82,12 @@ function num() { // this fumction will print the value on input..
         str=document.getElementById('number2').value
         i=str.length-1;
         check=str.charAt(str.length-1)
+                    
+        if(check=='.'){
+            dot = 1;
+        }
             
-        if(check=='+' || check == '-' || check=='x' || check=='÷' || check =='%'){
+        else if(check=='+' || check == '-' || check=='x' || check=='÷' || check =='%'){
             dot = 0;
             str=str.replaceAt(i, '-');
             document.getElementById('number2').value = str;
@@ -99,7 +107,11 @@ function num() { // this fumction will print the value on input..
         else{
             i=str.length-1;
             check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                        
+            if(check=='.'){
+                dot = 1;
+            }
+            else if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
                 dot = 0;
                 str=str.replaceAt(i, 'x');
                 document.getElementById('number2').value = str;
@@ -123,7 +135,11 @@ function num() { // this fumction will print the value on input..
         else{
             i=str.length-1;
             check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+                        
+            if(check=='.'){
+                dot = 1;
+            }
+            else if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
                 dot = 0;
                 str=str.replaceAt(i, '÷');
                 document.getElementById('number2').value = str;
@@ -147,7 +163,11 @@ function num() { // this fumction will print the value on input..
         else{
             i=str.length-1;
             check=str.charAt(str.length-1)
-            if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
+            
+            if(check=='.'){
+                dot = 1;
+            }
+            else if(check=='+' || (check == '-' && i != 0)|| check=='x' || check=='÷' || check =='%'){
                 dot = 0;
                 str=str.replaceAt(i, '%');
                 document.getElementById('number2').value = str;
