@@ -12,50 +12,49 @@
 
   <h1 style="margin-left: -16px;">!Calculator!</h1>
 
-  <input style="width: 125px; text-align: right; border-color: blanchedalmond;" id="number2" type="text" name="text">
+  <input id="text" type="text" name="text">
   <br>
   <br>
 
-  <button onclick="choice=1,num()">1</button>
+  <button onclick="letter('1')">1</button>
 
-  <button onclick="choice=2,num()">2</button>
+  <button onclick="letter('2')">2</button>
 
-  <button onclick="choice=3,num()">3</button>
+  <button onclick="letter('3')">3</button>
 
-  <button style="width: 22px;" onclick="choice='c',num()">c</button>
+  <button onclick="window.location.reload()">c</button>
 
-  <button style="width: 25px; font-weight: bolder;" onclick="choice='-',num()">-</button>
+  <button onclick="optr('-')">-</button>
   <br>
 
-  <button onclick="choice=4,num()">4</button>
+  <button onclick="letter('4')">4</button>
 
-  <button onclick="choice=5,num()">5</button>
+  <button onclick="letter('5')">5</button>
+  <button onclick="letter('6')">6</button>
 
-  <button onclick="choice=6,num()">6</button>
+  <button onclick="optr('÷')">÷</button>
 
-  <button style="width: 22px; font-weight: bold; " onclick="choice='/',num()">÷</button>
-
-  <button style="width: 25px;" onclick="choice='%',num()">%</button>
+  <button onclick="optr('%')">%</button>
   <br>
 
-  <button onclick="choice=7,num()">7</button>
+  <button onclick="letter('7')">7</button>
 
-  <button onclick="choice=8,num()">8</button>
+  <button onclick="letter('8')">8</button>
 
-  <button onclick="choice=9,num()">9</button>
+  <button onclick="letter('9')">9</button>
 
-  <button onclick="choice='*',num()">x</button>
+  <button onclick="optr('x')">x</button>
 
-  <button onclick="choice='+',num()">+</button>
+  <button onclick="optr('+')">+</button>
   <br>
 
-  <button onclick="choice=0,num()">0</button>
+  <button onclick="letter('0')">0</button>
 
-  <button onclick="choice='10',num()">00</button>
+  <button onclick="letter('00')">00</button>
 
-  <button style="font-weight: bolder;" onclick="choice='d',num()">.</button>
+  <button onclick="dot()">.</button>
 
-  <button style="width: 46px;" onclick="choice='=',num()">=</button>
+  <button onclick="result()">=</button>
 
 
   <script type="text/javascript" src="script.js"></script>
