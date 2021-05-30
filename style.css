@@ -1,0 +1,60 @@
+@media (min-width: 280px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 25%;
+  }
+}
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.btn:hover {
+  box-shadow: none !important;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.main-style {
+  background-color: rgb(241, 241, 241);
+  border-radius: 8px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216);
+  overflow: hidden;
+}
+body{
+  background: linear-gradient(to right, #b94a0adc,#0f042e);
+}
+.btn{
+  color:brown;
+}

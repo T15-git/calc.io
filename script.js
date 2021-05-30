@@ -5,15 +5,24 @@ function letter(num){
     document.getElementById('text').value += num;
     if(save[i]==null) save[i] = num; else save[i] += num;
 }
+function back(){
+    if(save[i]==null) return;
+    else{
+        save[i] = save[i].substring(0,save[i].length-1);
+        let str = document.getElementById('text').value;
+        str= str.substring(0,str.length-1);
+        document.getElementById('text').value = str;
+    }
+}
 
 function optr(op){
     if(save[0]==null && op == '-'){
         document.getElementById('text').value += op;
         save[0]='-';
     }
-    else if (save[0]==null || save[0]== '-') return;
+    else if (save[0]=='' || save[0]== '-') return;
 
-    else if(save[i]==null){
+    else if(save[i]==''){
         let rep = document.getElementById('text').value
         document.getElementById('text').value = rep.replaceAt(rep.length - 1, op);
         op=checkop(op);
