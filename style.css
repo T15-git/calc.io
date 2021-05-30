@@ -53,8 +53,5 @@
   overflow: hidden;
 }
 body{
-  background: linear-gradient(to right, #b94a0adc,#0f042e);
-}
-.btn{
-  color:brown;
+  background:rgb(243, 235, 235);
 }
