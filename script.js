@@ -12,19 +12,26 @@ function letter(num){
     if(save[i]==null) save[i] = num; else save[i] += num;
 }
 function back(){
-    if(save[i]==null || save[i]=='') return;
+    if((save[i]==''|| save[i]==null) && i!=0){
+        if(save[i]=='')save = save.slice(0, save.length - 1);
+        save = save.slice(0, save.length - 1);
+        let str = document.getElementById('text').value;
+        str = cutlast(str);
+        document.getElementById('text').value = str;
+        return i-=2;
+    }
     if(i==0) save[0]=document.getElementById('text').value;
-
+    if(save[0]==null || save[0]=='') return;
+    
     save[i] = cutlast(save[i]);
     let str = document.getElementById('text').value;
     str = cutlast(str);
     document.getElementById('text').value = str;
-
 }
 
 function optr(op){
     if((save[0]==null || save[0]=='') && op == '-'){
-        document.getElementById('text').value += op;
+        document.getElementById('text').value = op;
         save[0]='-';
         return;
     }
@@ -37,14 +44,12 @@ function optr(op){
         save[i-1]=op;
         return;
     }
-    let dot = checkdot(save[i])
     if (save[i][save[i].length-1] =='.') return;
-    else{
-        document.getElementById('text').value += op;
-        op=checkop(op);
-        save[++i]=op;
-        i++;
-    }
+    
+    document.getElementById('text').value += op;
+    op=checkop(op);
+    save[++i]=op;
+    i++;
 }
 
 function dot(){
@@ -61,6 +66,7 @@ function result(){
         save[i-2]= calculate(save[i]=parseFloat(save[i]) , save[--i] , save[--i]=parseFloat(save[i]))
         save = save.slice(0, save.length - 2);
     }
+    if(isNaN(save[0])) save[0]=0;
     document.getElementById('text').value = save[0];
 }
 
@@ -76,22 +82,17 @@ function calculate(first,op,second) {
 
 function checkop(op){
     if(op=='x') return '*';
-    else if(op=='÷') return '/';
-    else return op;
+    if(op=='÷') return '/';
+    return op;
 }
 
-function checkdot(str){
-    str =str[str.length-1];
-    return str;
-}
 function cutlast(str){
     let index = str.length-1;
     let newstr='';
-    let i=0;
-
-    while(i!=index){
-        newstr+=str[i];
-        i++;
+    let k=0;
+    while(k!=index){
+        newstr+=str[k];
+        k++;
     }
 return newstr;
 }
@@ -100,7 +101,6 @@ String.prototype.replaceAt = function(index, replacement) {
     if (index >= this.length) {
         return this.valueOf();
     }
- 
     var chars = this.split('');
     chars[index] = replacement;
     return chars.join('');
